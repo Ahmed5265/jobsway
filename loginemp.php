@@ -3,19 +3,12 @@
     
     if(isset($_SESSION['id']) && isset($_SESSION['emm']))
     {
-     $ir = $_SESSION['id'];
-      if($_SESSION["check"] == 0){
         echo "<script>
-        window.location.href='sign_process.php?ID=$ir';
+        window.location.href='index.php';
      </script>";
       }
-      else{
-
-        echo "<script>
-         window.location.href='index.php';
-      </script>";
-      }
-    }
+      
+    
 
 ?>
 
@@ -71,7 +64,6 @@
                         <div class="remember-forgot-info">
                           <div class="remember">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">Remember me</label>
                           </div>
                           <div class="forgot-password">
                             <a href="#/">Forgot Password?</a>
@@ -98,6 +90,7 @@
 
 <?php
 
+
   if(isset($_POST["btn"]))
 {
 
@@ -106,7 +99,7 @@
    $Pass = $_POST["pass"];
 
 
-   $sql = "SELECT * FROM `user` WHERE `email` = '".$email."' AND `password` = '".$Pass."'";
+   $sql = "SELECT * FROM `company` WHERE `email` = '".$email."' AND `password` = '".$Pass."'";
 
    $result = mysqli_query($con,$sql);
 
@@ -116,32 +109,22 @@
       while ($rowss = mysqli_fetch_assoc($result))
         
       { 
-          $iidd = $rowss['user_id'];
-          $email = $rowss['email'];
-          $nm = $rowss['name'];
-          $check = $rowss['is_update'];
+          $c_id = $rowss['company_id'];
+          $c_email = $rowss['email'];
+          $c_nm = $rowss['name'];
       }
     
-      $_SESSION["id"] = $iidd;
-      $_SESSION["emm"] = $email;
-      $_SESSION["nm"] = $nm;
-      $_SESSION["check"] = $check;
+      $_SESSION["c_id"] = $c_id;
+      $_SESSION["c_em"] = $c_email;
+      $_SESSION["c_nm"] = $c_nm;
         
         
 
 
-if($check == 0){
 
-  echo "<script>
-   window.location.href='sign_process.php?ID=$iidd';
-</script>"; 
-}
-else{
-  echo "<script>
-  alert('Login successfully');
-   window.location.href='index.php';
-</script>";
-}
+      echo "<script>
+      alert('Login Successfuly!!');
+  </script>";
 
         
         

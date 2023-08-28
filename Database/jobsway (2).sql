@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2023 at 11:01 PM
+-- Generation Time: Aug 29, 2023 at 12:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -69,6 +69,7 @@ CREATE TABLE `category` (
 CREATE TABLE `company` (
   `company_id` int(200) NOT NULL,
   `name` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `description` varchar(200) NOT NULL,
   `location` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
@@ -76,8 +77,16 @@ CREATE TABLE `company` (
   `since` int(200) NOT NULL,
   `Verified_by_admin` tinyint(1) NOT NULL DEFAULT 0,
   `role_id` int(200) DEFAULT NULL,
-  `company_created_date_time` datetime NOT NULL
+  `company_created_date_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`company_id`, `name`, `password`, `description`, `location`, `email`, `contact`, `since`, `Verified_by_admin`, `role_id`, `company_created_date_time`) VALUES
+(3, 'Company', '', 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ', 'karachi', 'one@employeer.com', '923152527960', 2013, 0, 2, '0000-00-00 00:00:00'),
+(4, 'Company ONE', 'ahmed', 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ', 'karachi', 'company@employeer.com', '923152527960', 2021, 0, 2, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -181,7 +190,7 @@ CREATE TABLE `user` (
   `profession` text NOT NULL,
   `martial_status` varchar(200) NOT NULL,
   `career_level` varchar(200) NOT NULL,
-  `experience_years` int(200) NOT NULL,
+  `experience_years` varchar(200) NOT NULL,
   `education` text NOT NULL,
   `date_of_birth` date NOT NULL,
   `personal_biodata` text NOT NULL,
@@ -198,14 +207,15 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `name`, `password`, `email`, `first_name`, `last_name`, `contact`, `address`, `city`, `postal_code`, `profession`, `martial_status`, `career_level`, `experience_years`, `education`, `date_of_birth`, `personal_biodata`, `cv_upload`, `profile_pic`, `post`, `role_id`, `is_update`, `user_created_date_time`) VALUES
-(5, 'haya', '123', 'haya@gmail.com', '', '', 43764836, '', NULL, 0, '', '', '', 0, '', '0000-00-00', '', '', '', '', NULL, 0, '2023-07-27 16:42:51'),
-(6, 'maryam', '1234', 'maryam12@gmail.com', '', '', 2147483647, '', NULL, 0, '', '', '', 0, '', '0000-00-00', '', '', '', '', NULL, 0, '2023-07-30 19:24:03'),
-(7, 'maya', '1234', 'maya@gmail.com', '', '', 2147483647, '', NULL, 0, '', '', '', 0, '', '0000-00-00', '', '', '', '', NULL, 0, '2023-08-01 16:10:30'),
-(8, 'iram', '123', 'iram@gmail.com', '', '', 743786437, '', NULL, 0, '', '', '', 0, '', '0000-00-00', '', '', '', '', NULL, 0, '2023-08-01 16:22:07'),
-(9, 'laila', '123', 'laila123@gmai.com', 'John', 'Doe', 4765767, '123 Main St', 'SomeCity', 12345, 'Developer', 'Married', 'Senior', 10, 'PhD', '1990-01-01', 'Some bio', '', '', '', 1, 1, '2023-08-01 17:45:19'),
-(10, 'mmm', '123', 'm@gmail.com', '1', '1', 2147483647, '1', 'aa', 1, 'ss', 'ss', 'ss', 0, 'ss', '0000-00-00', '1', '', '', '', 1, 1, '2023-08-26 17:23:30'),
-(11, 'Ahmed', 'ahmed', 'ahmed@gmail.com', 'Ahmed', 'Raza', 3123123, 'Ahmed', 'karachi', 7960, 'accountant', 'single', 'expert', 0, 'Matriculation', '2023-08-25', 'hiahs', '', '', '', 1, 1, '2023-08-27 15:37:42'),
-(12, 'Ahmii', 'ahmed', 'bablooddr2@gmail.com', '', '', 13131, '', NULL, 0, '', '', '', 0, '', '0000-00-00', '', '', '', '', 1, 0, '2023-08-29 01:58:46');
+(5, 'haya', '123', 'haya@gmail.com', '', '', 43764836, '', NULL, 0, '', '', '', '0', '', '0000-00-00', '', '', '', '', NULL, 0, '2023-07-27 16:42:51'),
+(6, 'maryam', '1234', 'maryam12@gmail.com', '', '', 2147483647, '', NULL, 0, '', '', '', '0', '', '0000-00-00', '', '', '', '', NULL, 0, '2023-07-30 19:24:03'),
+(7, 'maya', '1234', 'maya@gmail.com', '', '', 2147483647, '', NULL, 0, '', '', '', '0', '', '0000-00-00', '', '', '', '', NULL, 0, '2023-08-01 16:10:30'),
+(8, 'iram', '123', 'iram@gmail.com', '', '', 743786437, '', NULL, 0, '', '', '', '0', '', '0000-00-00', '', '', '', '', NULL, 0, '2023-08-01 16:22:07'),
+(9, 'laila', '123', 'laila123@gmai.com', 'John', 'Doe', 4765767, '123 Main St', 'SomeCity', 12345, 'Developer', 'Married', 'Senior', '10', 'PhD', '1990-01-01', 'Some bio', '', '', '', 1, 1, '2023-08-01 17:45:19'),
+(10, 'mmm', '123', 'm@gmail.com', '1', '1', 2147483647, '1', 'aa', 1, 'ss', 'ss', 'ss', '0', 'ss', '0000-00-00', '1', '', '', '', 1, 1, '2023-08-26 17:23:30'),
+(11, 'Ahmed', 'ahmed', 'ahmed@gmail.com', 'ahmed', 'raza', 3123123, 'ahmed', 'karachi', 1, 'accountant', 'single', 'expert', 'Less then 6 Month', 'Matriculation', '2023-08-16', 'aa', '', '', '', 1, 1, '2023-08-27 15:37:42'),
+(12, 'Ahmii', 'ahmed', 'bablooddr2@gmail.com', 'Ahmed', 'Raza', 13131, 'ahmed', 'karachi', 1, 'accountant', 'single', 'expert', '', 'Matriculation', '2023-08-16', 'aa', '', '', '', 1, 1, '2023-08-29 01:58:46'),
+(13, 'Ahmii', 'ahmed', 'ahmed@user.com', 'Ahmed', 'Raza', 2147483647, 'Orangi', 'karachi', 75800, 'web-designer', 'single', 'medium', '< 1 year', 'Intermediate', '2001-10-18', 'Lorem Ipsum is simply dummy text of the printing and typesetting in Lorem Ipsum', '', '', '', 1, 1, '2023-08-29 02:52:55');
 
 --
 -- Indexes for dumped tables
@@ -304,7 +314,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `company_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `education`
@@ -340,7 +350,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

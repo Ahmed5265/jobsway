@@ -11,7 +11,7 @@ $result = mysqli_query($con,$query);
 <div class="main-panel">
 
           <div class="content-wrapper">
-          <a href="home.php?page=add_vendor.php" class="btn btn-primary">Add Vendor</a>
+          <a href="home.php?page=add_vendor.php" class="btn btn-primary">Add Employeer</a>
             <div class="page-header">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -20,7 +20,7 @@ $result = mysqli_query($con,$query);
                 <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Vendor List</h4>
+                    <h4 class="card-title">Employeer List</h4>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -28,6 +28,7 @@ $result = mysqli_query($con,$query);
                         <th> Id </th>
                           <th> Name </th>
                           <th> Email </th>
+                          <th> Password </th>
                           <th> Location </th>
                           <th> contact no </th>
                           <th> Since </th>
@@ -44,6 +45,7 @@ $result = mysqli_query($con,$query);
                           <td><?php echo $row["company_id"]?> </td>
                           <td> <?php echo $row["name"]?> </td>
                           <td> <?php echo $row["email"]?> </td>
+                          <td> <?php echo $row["password"]?> </td>
                           <td> <?php echo $row["location"]?> </td>
                           <td> <?php echo $row["contact"]?> </td>
                           <td> <?php echo $row["since"]?> </td>

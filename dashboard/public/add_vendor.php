@@ -14,12 +14,16 @@
                 <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Add Vendor</h4>
-                    <p class="card-description"> Add Vendor </p>
+                    <h4 class="card-title">Add Employeer</h4>
+                    <p class="card-description"> Add Employeer </p>
                     <form class="forms-sample" method="post" enctype="multipart/form-data" >
                       <div class="form-group">
                         <label for="exampleInputName1">Name</label>
                         <input type="text" class="form-control" name="name" id="exampleInputName1" placeholder="Name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Password</label>
+                        <input type="password" class="form-control" name="pass" id="exampleInputName1" placeholder="Name" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Email address</label>
@@ -109,18 +113,19 @@ if(isset($_POST["btn"]))
     $location = $_POST["loc"];
     $contact = $_POST["contact"];
     $description = $_POST["desc"];
+    $pass = $_POST["pass"];
 
 
 
 
 
-    $sql = "insert into company(company_id,name,email,contact,since,location,description,Verified_by_admin,company_created_date_time) VALUES ('','$name','$email','$contact','$since','$location','$description','','')";
+    $sql = "insert into company(company_id,name,email,contact,since,location,description,Verified_by_admin,role_id,company_created_date_time,password) VALUES ('','$name','$email','$contact','$since','$location','$description','','2','','$pass')";
 
     
     if( mysqli_query($con,$sql)){
 
       echo "<script>
-         alert('new vendor add successfully!!');
+         alert('new Employeer add successfully!!');
          window.location.href='?page=vendor_list.php';
         </script>";
 

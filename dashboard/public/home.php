@@ -148,13 +148,13 @@
             <li class="nav-item">
               <a class="nav-link" href="?page=add_vendor.php">
                 <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
-                <span class="menu-title">Add vendor </span>
+                <span class="menu-title">Add Employeer </span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="?page=vendor_list.php">
                 <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span class="menu-title">Vendor list</span>
+                <span class="menu-title">Employeer list</span>
               </a>
             </li>
          

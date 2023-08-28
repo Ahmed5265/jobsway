@@ -1,5 +1,6 @@
 <?php include 'header_pages.php';
-if(isset($_SESSION['emm']))
+
+if(isset($_SESSION['emm']) && $_SESSION["check"] == 0)
 {
 }
 else
@@ -8,6 +9,7 @@ else
     window.location.href='index.php';
  </script>";
 }
+
 ?>
 <div id="toast-container" class="toast-bottom-right"><div class="toast toast-success" style="display: block;background-color: #0db02b"><div class="toast-message">Complete The Form First!!</div></div></div>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -92,7 +94,7 @@ if(mysqli_num_rows($result) > 0)
                             </ul>
                         </div>
         
-                        <form role="form" class="login-box" method="post" enctype="multipart/form-data">
+                        <form role="form" class="login-box" method="post">
                             <div class="tab-content" id="main_form">
                                 <div class="tab-pane active" role="tabpanel" id="step1">
                                     <h4 class="text-center">Step 1</h4>
@@ -382,58 +384,12 @@ if(mysqli_num_rows($result) > 0)
                                        </div>
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" name="btn" class="default-btn next-step">Finish</button></li>
+                                        <li><button type="submit" name="btn" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>
 
 
-                                <?php
-
-                             if(isset($_POST["btn"]))
-                             {
-                                 $fname=$_POST["fname"];
-                                 $lname = $_POST["lname"];
-                                 $education = $_POST["qua"];
-                                 $martial_status = $_POST["status"];
-                                 $profession = $_POST["prof"];
-                                 $level = $_POST["level"];
-                                 $experience = $_POST["exp"];
-                                 $address = $_POST["add"];
-                                 $city = $_POST["city"];
-                                 $postal = $_POST["postal"];
-                                 $dob = $_POST["dob"];
-                                 $personal = $_POST["personal"];
-                                
-                                $sql_update = "UPDATE `user`
-                                SET
-                                    `first_name` = $fname,
-                                    `last_name` = $lname,
-                                    `address` = $address,
-                                    `city` = $city,
-                                    `postal_code` = $postal,
-                                    `profession` = $profession,
-                                    `martial_status` = $martial_status,
-                                    `career_level` = $level,
-                                    `experience_years` = $experience,
-                                    `education` = $education,
-                                    `date_of_birth` = $dob,
-                                    `personal_biodata` = $personal,
-                                    `is_update` = 1,
-                                     WHERE user_id = $idd";
-                                
-                                if( mysqli_query($con,$sql_update)){
-
-                                    echo "<script>
-                                       alert('registration successful!!');
-                                       window.location.href='index.php';
-                                      </script>";
-                              
-                                       }
-
-
-                             }
-
-                             ?>
+                               
                                   
                                 </div>
                                 <div class="clearfix"></div>
@@ -446,6 +402,7 @@ if(mysqli_num_rows($result) > 0)
         </div>
     </section>
   </main>
+  
   <?php }}?>
 
     <script>// ------------step-wizard-------------
@@ -839,3 +796,64 @@ input[type="checkbox"]:checked::before{
 	}
 }
 </style>
+ <?php
+    $hosts  ="localhost";
+    $users ="root";
+    $passwords  ="";
+    $databases  ="jobsway";
+    
+
+
+  $conn = mysqli_connect($hosts,$users,$passwords,$databases) or die ("DataBase Error");
+
+                             if(isset($_POST["btn"]))
+                             {
+                                 $fname=$_POST["fname"];
+                                 $lname = $_POST["lname"];
+                                 $education = $_POST["qua"];
+                                 $martial_status = $_POST["status"];
+                                 $profession = $_POST["prof"];
+                                 $level = $_POST["level"];
+                                 $experience = $_POST["exp"];
+                                 $address = $_POST["add"];
+                                 $city = $_POST["city"];
+                                 $postal = $_POST["postal"];
+                                 $dob = $_POST["dob"];
+                                 $personal = $_POST["personal"];
+                                 
+                
+
+                                $sql_update = "UPDATE `user`
+                                SET
+                                `first_name` = '$fname',
+            `last_name` = '$lname',
+            `address` = '$address',
+            `city` = '$city',
+            `postal_code` = '$postal',
+            `profession` = '$profession',
+            `martial_status` = '$martial_status',
+            `career_level` = '$level',
+            `experience_years` = '$experience',
+            `education` = '$education',
+            `date_of_birth` = '$dob',
+            `personal_biodata` = '$personal',
+            `is_update` = 1
+                                     WHERE user_id = $idd";
+                                
+                                
+                                if ($conn->query($sql_update) === TRUE) {
+                                    echo "<script>
+                                       alert('registration Completed!!');
+                                       window.location.href='index.php';
+                                      </script>";
+                                  } else {
+                                    echo "<script>
+                                    alert('.$conn->error');
+                                    window.location.href='index.php';
+                                   </script> ";
+                                  }
+
+                                 
+                             }
+
+                             ?>

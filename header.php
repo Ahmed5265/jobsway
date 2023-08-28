@@ -1,4 +1,4 @@
-<?php include 'db-config.php';?>
+<?php require_once 'db-config.php';?>
 <!DOCTYPE html>
 <html lang="zxx">
 

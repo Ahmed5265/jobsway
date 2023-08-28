@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-12">
             <div class="page-header-content">
-              <h2 class="title">Login</h2>
+              <h2 class="title">Employeer</h2>
               <nav class="breadcrumb-area">
                 <ul class="breadcrumb justify-content-center">
                   <li><a href="index.php">Home</a></li>
@@ -43,17 +43,16 @@
       </div>
     </div>
     <!--== End Page Header Area Wrapper ==-->
+
     <!--== Start Login Area Wrapper ==-->
     <section class="account-login-area">
-      <br>
-      <center>     <button class="btn-success btn"><a style="color: #fff;" href="loginemp.php"> Login As Employeer </a></button> </center>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-7 col-xl-6">
             <div class="login-register-form-wrap">
               <div class="login-register-form">
                 <div class="form-title">
-                  <h4 class="title">Sign In</h4>
+                  <h4 class="title">Sign In As Employeer</h4>
                 </div>
                 <form method="POST">
                   <div class="row">
@@ -87,9 +86,6 @@
                     </div>
                   </div>
                 </form>
-                <div class="login-register-form-info">
-                  <p>Don't you have an account? <a href="registration.php">Register</a></p>
-                </div>
               </div>
             </div>
           </div>
@@ -162,4 +158,4 @@ else{
 ?>
 
 
-  <?php include'footer.php';?>
+  <?php include'footer.php';?> 

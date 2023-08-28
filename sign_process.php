@@ -279,11 +279,11 @@ if(mysqli_num_rows($result) > 0)
                                             <label>Experience Years *</label> 
                                             <select class="form-control" name="exp" id="">
                                                     <option disabled value="">~Select~</option>
-                                                    <option value="single">Less then 6 Month</option>
-                                                    <option value="married">< 1 year</option>
-                                                    <option value="commit">< 2 year</option>
-                                                    <option value="divorced">< 3 year</option>
-                                                    <option value="divorced">more then 4 year</option>
+                                                    <option value="Less then 6 Month">Less then 6 Month</option>
+                                                    <option value="< 1 year">< 1 year</option>
+                                                    <option value="< 2 year">< 2 year</option>
+                                                    <option value="< 3 year">< 3 year</option>
+                                                    <option value="more then 4 year">more then 4 year</option>
                                                 </select> 
                                         </div>
                                     </div>

@@ -101,7 +101,8 @@
   if(isset($_SESSION['emm']))
   { ?>
    
-       <a class="btn-registration" href="logout.php"><span></span> Logout</a>
+   <a class="btn-registration" href="profile.php"><span></span>Profile</a>
+       <a class="btn-success btn" href="logout.php"><span></span> Logout</a>
        <?php
   }
  else

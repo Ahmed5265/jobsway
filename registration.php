@@ -75,11 +75,7 @@
                         <div class="col-12">
                           <div class="form-group">
                             <div class="remember-forgot-info">
-                              <div class="remember">
-                                <input class="form-check-input" type="checkbox" onclick="myFunction()" required>
-                                
-                                <label class="form-check-label" for="defaultCheck1">Show Password</label>
-                              </div>
+                              
                             </div>
                           </div>
                           <div class="form-group">

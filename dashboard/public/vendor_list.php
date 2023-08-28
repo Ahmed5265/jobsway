@@ -1,11 +1,21 @@
+<?php
+
+$query = "select * from company";
+$result = mysqli_query($con,$query);
+
+
+
+?>
+
+
 <div class="main-panel">
+
           <div class="content-wrapper">
+          <a href="home.php?page=add_vendor.php" class="btn btn-primary">Add Vendor</a>
             <div class="page-header">
-             
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                 </ol>
-                </nav>
                 
                 <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -15,6 +25,7 @@
                       <thead>
                         <tr>
                           
+                        <th> Id </th>
                           <th> Name </th>
                           <th> Email </th>
                           <th> Location </th>
@@ -24,16 +35,26 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <?php
+                                
+                                while($row=mysqli_fetch_array($result)){
+                                  ?>
                         <tr>
                          
-                          <td> Herman Beck </td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                          <td> May 15, 2015 </td>
-                          <td> May 15, 2015 </td>
-                          <td> May 15, 2015 </td>
+                          <td><?php echo $row["company_id"]?> </td>
+                          <td> <?php echo $row["name"]?> </td>
+                          <td> <?php echo $row["email"]?> </td>
+                          <td> <?php echo $row["location"]?> </td>
+                          <td> <?php echo $row["contact"]?> </td>
+                          <td> <?php echo $row["since"]?> </td>
+                          <td> <?php echo $row["description"]?> </td>
+                         
                         </tr>
-                        <tr>
+                        <?php
+                                }
+                                
+                                ?>
+                       
                          
                         
                       </tbody>
@@ -41,7 +62,7 @@
                   </div>
                 </div>
               </div>
-              
+              </nav>
               
 
              

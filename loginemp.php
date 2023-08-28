@@ -106,7 +106,7 @@
    $Pass = $_POST["pass"];
 
 
-   $sql = "SELECT * FROM `user` WHERE `email` = '".$email."' AND `password` = '".$Pass."'";
+   $sql = "SELECT * FROM `company` WHERE `email` = '".$email."' AND `password` = '".$Pass."'";
 
    $result = mysqli_query($con,$sql);
 
@@ -116,7 +116,7 @@
       while ($rowss = mysqli_fetch_assoc($result))
         
       { 
-          $iidd = $rowss['user_id'];
+          $iidd = $rowss['company_id'];
           $email = $rowss['email'];
           $nm = $rowss['name'];
           $check = $rowss['is_update'];

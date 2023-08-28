@@ -121,7 +121,7 @@ if(isset($_POST["btn"]))
 
       echo "<script>
          alert('new vendor add successfully!!');
-         window.location.href='?page=add_vendor.php';
+         window.location.href='?page=vendor_list.php';
         </script>";
 
          }
